@@ -1,0 +1,9 @@
+.internal-link {
+    color: black;
+    font-weight: 500;
+    cursor: pointer;
+
+    &:hover {
+        color: blue;
+    }
+}

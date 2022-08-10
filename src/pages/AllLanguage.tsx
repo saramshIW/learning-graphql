@@ -1,21 +1,19 @@
 import { gql, useQuery } from '@apollo/client';
-import { Input, Row, Col, Typography, Button, Space, Spin, Alert } from 'antd';
+import { Row, Col, Typography, Spin, Alert } from 'antd';
 import React from 'react';
-import { Link } from 'react-router-dom';
 import style from './styles/AllCountry.module.scss';
 
-const GET_ALL_COUNTRY = gql`
-  query GetAllCountry {
-    countries {
+const GET_ALL_LANGUAGE = gql`
+  query GetAllLanguages {
+    languages {
       name
       code
-      __typename
     }
   }
 `;
 
-const AllCountry: React.FC = () => {
-  const { loading, error, data } = useQuery(GET_ALL_COUNTRY);
+const AllLanguage: React.FC = () => {
+  const { loading, error, data } = useQuery(GET_ALL_LANGUAGE);
   if (loading) return <Spin className='center' size='large' />;
   if (error)
     return (
@@ -29,23 +27,21 @@ const AllCountry: React.FC = () => {
   return (
     <div style={{ background: 'white', padding: '2rem 0rem' }}>
       <Typography.Title style={{ textAlign: 'center' }} level={2}>
-        {'Country List'}
+        {'Language List'}
       </Typography.Title>
       <hr />
       <br />
       <Row>
-        {data.countries.map((item: any, index: number) => (
+        {data.languages.map((item: any, index: number) => (
           <Col
             xs={{ span: 22, offset: 1 }}
             sm={{ span: 11, offset: 1 }}
             lg={{ span: 7, offset: 1 }}
             key={index + item.code}
           >
-            <Link to={`/country/${item.code}`}>
-              <Typography.Text className={style['internal-link']}>
-                {item.name} - {item.code}
-              </Typography.Text>
-            </Link>
+            <Typography.Text className={style['internal-link']}>
+              {item.name} - {item.code}
+            </Typography.Text>
           </Col>
         ))}
       </Row>
@@ -53,4 +49,4 @@ const AllCountry: React.FC = () => {
   );
 };
 
-export default AllCountry;
+export default AllLanguage;

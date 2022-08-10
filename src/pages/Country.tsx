@@ -63,7 +63,7 @@ const Country = () => {
         )}
       </form>
       <Row justify="center">
-        <CountryResult {...queryData} />
+        {searchValue && <CountryResult {...queryData} />}
       </Row>
     </>
   );

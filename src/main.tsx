@@ -1,13 +1,13 @@
-import { ApolloProvider } from "@apollo/client";
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import App from "./App";
-import client from "./config/apolloClient";
+import { ApolloProvider } from '@apollo/client';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
+import client from './config/apolloClient';
 
-import "./index.scss";
+import './index.scss';
 
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <ApolloProvider client={client}>
       <BrowserRouter>
